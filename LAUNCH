@@ -1,0 +1,16 @@
+#!/usr/local/bin/bash
+
+my-ip () {
+    ifconfig | grep 'inet ' | awk '
+        { count++; }
+        count == 2 { printf($2) }
+    '
+}
+export -f my-ip
+
+bundle exec jekyll serve --host=0.0.0.0 &
+sleep .5
+sass --watch sass/oasis.scss:oasis.css &
+sleep 1.5
+open http://`my-ip`:4000/
+wait
