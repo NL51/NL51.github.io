@@ -1,5 +1,14 @@
 #!/usr/local/bin/bash
 
+echo ""
+echo "Press Ctrl-C to stop."
+echo "-----------"
+echo "git commit -a -m 'updated site'"
+echo "git push"
+echo "-----------"
+echo ""
+echo ""
+
 my-ip () {
     ifconfig | grep 'inet ' | awk '
         { count++; }
